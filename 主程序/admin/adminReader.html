@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC >
+<html>
+
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=default" />
+        <meta name="description" content="description" />
+        <meta name="keywords" content="keywords" />
+        <style>
+                a {
+                        color: #000;
+                        text-decoration: none;
+                }
+                
+                body {
+                        background: #CCC url(img/bg.gif) repeat-y fixed bottom center;
+                        color: #333;
+                        margin: 20px 0;
+                        text-align: center;
+                        font: normal 0.9em sans-serif, Arial;
+                }
+                
+                .gfx a {
+                        background: #F5F5F5 url(img/head.png) no-repeat;
+                        display: block;
+                        height: 320px;
+                }
+                /* header */
+                
+                .header {
+                        background: #FFF;
+                        border-bottom: 1px solid #E5E5E5;
+                        font: bold 2.6em Arial;
+                        line-height: 3em;
+                }
+                /* main */
+                
+                .main {
+                        background: #FFF;
+                        border: 3px double #EEE;
+                        border-color: #E4E4E4 #CFCFCF #CCC #CFCFCF;
+                        margin: 20px auto 4px auto;
+                        text-align: left;
+                        width: 860px;
+                }
+                
+                .container {
+                        margin: 10px;
+                }
+                /* menu */
+                
+                .menu a {
+                        background: #EEE;
+                        border-right: 1px solid #CECECE;
+                        border-top: 1px solid #E5E5E5;
+                        color: #888;
+                        float: left;
+                        padding-top: 4px;
+                        width: 209px;
+                        height: 36px;
+                }
+                
+                .menu a span {
+                        padding-left: 6px;
+                }
+                
+                .menu a:hover {
+                        background: #EEE url(img/bgmenu.gif) repeat-x;
+                        color: #555;
+                }
+                
+                .menu a#last {
+                        width: 210px;
+                        border-right: none;
+                }
+                /* content */
+                
+                .content {
+                        background: #F5F5F5;
+                        border-top: 1px solid #E5E5E5;
+                        clear: both;
+                }
+                
+                .content h1 {
+                        margin: 0;
+                        font: bold 1.1em sans-serif, Arial;
+                        color: #666;
+                }
+                
+                .content p {
+                        margin: 3px 0 6px;
+                        color: #666;
+                }
+                
+                .item {
+                        background: #FCFCFC url(img/bgitem.gif) repeat-x;
+                        padding: 10px;
+                }
+                /* footer */
+                
+                .footer {
+                        padding: 5px;
+                        background: #F5F5F5;
+                        color: #666;
+                }
+                
+                .footer .left,
+                .footer .right {
+                        padding: 0 12px;
+                }
+                
+                .footer .right,
+                .footer .right a {
+                        color: #AAA;
+                }
+                
+                .footer .right a:hover {
+                        color: #444;
+                }
+                /* floats */
+                
+                .left {
+                        float: left;
+                }
+                
+                .right {
+                        float: right;
+                }
+                
+                .clearer {
+                        clear: both;
+                }
+        </style>
+        <script>
+                function confirmDelete()
+		{
+			var i =confirm("确定挂失此会员?");
+			return i;
+		}
+//javaSCRIPT
+
+        </script>
+
+        <title>图书借阅系统</title>
+</head>
+
+<body>
+
+        <div class="main">
+
+                <div class="container">
+
+                        <div class="gfx"><a><span></span></a></div>
+
+                        <div class="menu">
+                                <a href="|admin|book"><span>图书管理</span></a>
+                                <a href="|admin|reader"><span>读者管理</span></a>
+                                <a href="|admin|record"><span>借书纪录</span></a>
+                                <a href="|logout" id="last"><span>退出登录</span></a>
+                        </div>
+
+
+                        <div class="content">
+								<div class="item">
+									<h1>添加会员信息</h1>
+									<p>在这里你可以添加新的会员信息</p>
+									<p align="center"><a href="|admin|reader|new" ><img src="img/add_user.png" alt="添加会员" ></a></p>
+								</div>
+                                <div class="item">
+                                        <h1>会员管理</h1>
+                                        <p>在这里你可以管理会员</p>
+                                        <br>
+                                        <!--<form align="center">-->
+                                        <div align="center">
+											<form form action="|admin|reader|search|" method="get" align="crnter">
+												搜索会员:<input type="text" id="searchWord" name="searchName" style="width:80%%">
+												<input type="submit" onclick="clickSubmit()" value="搜索">
+												
+												<br>
+												<input type="radio" id="reader_id" name="searchBy" value="reader_id" checked>会员编号
+												<input type="radio" id="rader_name" name="searchBy" value="reader_name">会员姓名
+												<input type="radio" id="mobile" name="searchBy" value="mobile">手机号码
+												<input type="radio" id="card_id" name="searchBy" value="card_id">证件号码
+												
+											</form>
+                                        </div>
+                                        <!--</form>-->
+                                        <table border="1" cellpadding="2" align="center">
+                                                <tr>
+                                                        <th>读者编号</th>
+                                                        <th>姓名</th>
+                                                        <th>性别</th>
+                                                        <th>生日</th>
+                                                        <th>电话号码</th>
+                                                        <th>手机号码</th>
+                                                        <th>证件类型</th>
+                                                        <th>证件号码</th>
+                                                        <th>会员级别</th>
+                                                        <th>办卡日期</th>
+                                                        <th>修改</th>
+                                                </tr>
+                                                <!--<td align="center">
+                                                        <a href="delete"><img src="img/delete.png" alt="删除">┃
+                                                                <a href="edit"><img src="img/edit.png" alt="编辑"></a>
+                                                </td>-->
+                                                %s
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <br>
+<div class="item">
+									<h1>挂失找回</h1>
+									<p>在这里你可以查看已经挂失会员卡的会员</p>
+									<p align="center">
+										<table border="1" cellpadding="2" align="center" width="70%%">
+											<tr><th align="center">编号</th><th align="center">姓名</th></tr>
+											%s
+										</table>
+									</p>
+								</div>
+
+										</div>
+                                        <div>
+                                                <div class="footer">
+
+                                                        <span class="left">&copy; 2015 <a href="mailto:13281092@bjtu.edu.cn">13281092刘瀚文</a></span>
+
+                                                        <div class="clearer"><span></span></div>
+
+                                                </div>
+
+                                        </div>
+
+                                </div>
+
+</body>
+
+</html>

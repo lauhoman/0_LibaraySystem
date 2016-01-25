@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC >
+<html>
+
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=default" />
+        <meta name="description" content="description" />
+        <meta name="keywords" content="keywords" />
+        <style>
+                a {
+                        color: #000;
+                        text-decoration: none;
+                }
+                
+                body {
+                        background: #CCC url(img/bg.gif) repeat-y fixed bottom center;
+                        color: #333;
+                        margin: 20px 0;
+                        text-align: center;
+                        font: normal 0.9em sans-serif, Arial;
+                }
+                
+                .gfx a {
+                        background: #F5F5F5 url(img/head.png) no-repeat;
+                        display: block;
+                        height: 320px;
+                }
+                /* header */
+                
+                .header {
+                        background: #FFF;
+                        border-bottom: 1px solid #E5E5E5;
+                        font: bold 2.6em Arial;
+                        line-height: 3em;
+                }
+                /* main */
+                
+                .main {
+                        background: #FFF;
+                        border: 3px double #EEE;
+                        border-color: #E4E4E4 #CFCFCF #CCC #CFCFCF;
+                        margin: 20px auto 4px auto;
+                        text-align: left;
+                        width: 860px;
+                }
+                
+                .container {
+                        margin: 10px;
+                }
+                /* menu */
+                
+                .menu a {
+                        background: #EEE;
+                        border-right: 1px solid #CECECE;
+                        border-top: 1px solid #E5E5E5;
+                        color: #888;
+                        float: left;
+                        padding-top: 4px;
+                        width: 209px;
+                        height: 36px;
+                }
+                
+                .menu a span {
+                        padding-left: 6px;
+                }
+                
+                .menu a:hover {
+                        background: #EEE url(img/bgmenu.gif) repeat-x;
+                        color: #555;
+                }
+                
+                .menu a#last {
+                        width: 210px;
+                        border-right: none;
+                }
+                /* content */
+                
+                .content {
+                        background: #F5F5F5;
+                        border-top: 1px solid #E5E5E5;
+                        clear: both;
+                }
+                
+                .content h1 {
+                        margin: 0;
+                        font: bold 1.1em sans-serif, Arial;
+                        color: #666;
+                }
+                
+                .content p {
+                        margin: 3px 0 6px;
+                        color: #666;
+                }
+                
+                .item {
+                        background: #FCFCFC url(img/bgitem.gif) repeat-x;
+                        padding: 10px;
+                }
+                /* footer */
+                
+                .footer {
+                        padding: 5px;
+                        background: #F5F5F5;
+                        color: #666;
+                }
+                
+                .footer .left,
+                .footer .right {
+                        padding: 0 12px;
+                }
+                
+                .footer .right,
+                .footer .right a {
+                        color: #AAA;
+                }
+                
+                .footer .right a:hover {
+                        color: #444;
+                }
+                /* floats */
+                
+                .left {
+                        float: left;
+                }
+                
+                .right {
+                        float: right;
+                }
+                
+                .clearer {
+                        clear: both;
+                }
+        </style>
+        <script>
+                function searchBotton()
+	{
+		//alert("test");
+		var searchWord = document.getElementById("searchWord").value;
+		//alert(searchWord);
+		var searchByE = document.getElementsByName("searchBy");
+		//alert("--");
+		var searchBy
+		for(var ii=0;ii<searchByE.length;ii++)
+		{
+			//alert("loop");
+			if(searchByE.item(ii).checked)
+			{
+				searchBy=searchByE.item(ii).value;
+				break;
+				//alert("break");
+			}
+		}
+		//alert(searchBy);
+		var categorySelect = document.getElementById("categorySelect").value;
+		//alert(categorySelect);
+		
+		var path = "|admin|book|search|"+searchWord+"|"+searchBy+"|"+categorySelect
+		//alert(path);
+		window.location.assign(path);
+	}
+	function clickDelete(book_id)
+	{
+		alert(book_id);
+		var i = confirm("确定删除该图书吗?");
+		if(i==true){}
+	}
+//javaSCRIPT
+
+        </script>
+
+        <title>图书借阅系统</title>
+</head>
+
+<body>
+
+        <div class="main">
+
+                <div class="container">
+
+                        <div class="gfx"><a><span></span></a></div>
+
+                        <div class="menu">
+                                <a href="|admin|book"><span>图书管理</span></a>
+                                <a href="|admin|reader"><span>读者管理</span></a>
+                                <a href="|admin|record"><span>借书纪录</span></a>
+                                <a href="|logout" id="last"><span>退出登录</span></a>
+                        </div>
+
+
+                        <div class="content">
+								<div class="item">
+									<h1>添加图书</h1>
+									<p>在这里你可以添加书籍</p>
+									<p align="center"><a href="|admin|book|new" ><img src="img/add.png" alt="添加图书" ></a></p>
+								</div>
+                                <div class="item">
+                                        <h1>图书管理</h1>
+                                        <p>在这里你可以管理书籍</p>
+                                        <br>
+                                        <!--<form align="center">-->
+                                        <div align="center">
+                                                搜索书籍:
+                                                <input type="text" id="searchWord" style="width:80%%">
+                                                <input type="button" value="搜索" onclick="searchBotton()">
+                                                <br>
+                                                <input type="radio" id="book_name" checked="checked" name="searchBy" value="book_name">书名
+                                                <input type="radio" id="book_id" name="searchBy" value="book_id">图书编号
+                                                <input type="radio" id="publishing" name="searchBy" value="publishing">出版社
+                                                <input type="radio" id="author" name="searchBy" value="author">作者 类别:
+
+                                                <select id="categorySelect">
+                                                        <option value="all">全部</option>
+                                                        %s
+                                                </select>
+                                        </div>
+                                        <!--</form>-->
+                                        <table border="1" cellpadding="5" align="center">
+                                                <tr>
+                                                        <th>图书编号</th>
+                                                        <th>书名</th>
+                                                        <th>作者</th>
+                                                        <th>出版社</th>
+                                                        <th>类别</th>
+                                                        <th>价格</th>
+                                                        <th>入库时间</th>
+                                                        <th>库存量</th>
+                                                        <th>借出量</th>
+                                                        <th>丢失量</th>
+                                                        <th>修改</th>
+                                                </tr>
+                                                <!--<td align="center">
+                                                        <a href="delete"><img src="img/delete.png" alt="删除">┃
+                                                                <a href="edit"><img src="img/edit.png" alt="编辑"></a>
+                                                </td>-->
+                                                %s
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <br>
+
+
+										</div>
+                                        <div>
+                                                <div class="footer">
+
+                                                        <span class="left">&copy; 2015 <a href="mailto:13281092@bjtu.edu.cn">13281092刘瀚文</a></span>
+
+                                                        <div class="clearer"><span></span></div>
+
+                                                </div>
+
+                                        </div>
+
+                                </div>
+
+</body>
+
+</html>

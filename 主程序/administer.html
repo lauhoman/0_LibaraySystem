@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC >
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=default"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<style>a {
+	color: #000;
+	text-decoration: none;
+}
+body {
+	background: #CCC url(img/bg.gif) repeat-y fixed bottom center;
+	color: #333;
+	margin: 20px 0;
+	text-align: center;
+	font: normal 0.9em sans-serif,Arial;
+}
+.gfx a {
+	background: #F5F5F5 url(img/head.png) no-repeat; display: block; height: 320px;
+}
+
+/* header */
+.header {
+	background: #FFF;
+	border-bottom: 1px solid #E5E5E5;
+	font: bold 2.6em Arial;
+	line-height: 3em;
+}
+
+/* main */
+.main {
+	background: #FFF; 
+	border: 3px double #EEE; 
+	border-color: #E4E4E4 #CFCFCF #CCC #CFCFCF; 
+	margin: 20px auto 4px auto; 
+	text-align: left;
+	width: 860px; 
+}
+.container {
+	margin: 10px;
+}
+
+/* menu */
+.menu a {
+	background: #EEE;
+	border-right: 1px solid #CECECE;
+	border-top: 1px solid #E5E5E5;
+	color: #888;
+	float: left;
+	padding-top: 4px;
+	width: 419px; height: 36px;
+}
+.menu a span {
+	padding-left: 6px;
+}
+.menu a:hover {
+	background: #EEE url(img/bgmenu.gif) repeat-x;
+	color: #555;
+}
+.menu a#last {
+	width: 419px;
+	border-right: none;
+}
+
+/* content */
+.content {
+	background: #F5F5F5;
+	border-top: 1px solid #E5E5E5;
+	clear: both;
+}
+.content h1 {
+	margin: 0;
+	font: bold 1.1em sans-serif,Arial;
+	color: #666;
+}
+.content p {
+	margin: 3px 0 6px; color: #666;
+}
+.item {
+	background: #FCFCFC url(img/bgitem.gif) repeat-x;
+	padding: 10px;
+}
+
+/* footer */
+.footer {
+	padding: 5px;
+	background: #F5F5F5;
+	color: #666;
+}
+.footer .left, .footer .right {padding: 0 12px;}
+.footer .right, .footer .right a {color: #AAA;}
+.footer .right a:hover {color: #444;}
+
+/* floats */
+.left {float: left;}
+.right {float: right;}
+.clearer {clear: both;}
+</style>
+<script>
+	function loginBotton()
+	{
+		var username = document.getElementById("username").value;
+		var password = document.getElementById("password").value;
+		//alert(username);
+		//alert(password);
+		var path = "|login|"+"admin|"+username+"|"+password;
+		//alert(path);
+		window.location.assign(path);
+	}
+</script>
+	
+<title>图书借阅系统</title>
+</head>
+
+<body>
+
+<div class="main">
+
+	<div class="container">
+
+		<div class="gfx"><a><span></span></a></div>
+
+		<div class="menu">
+			<a href="member.html"><span>会员登陆</span></a>
+				
+			<a href="administer.html" id="last"><span>管理员登陆</span></a>
+		</div>
+
+		<div class="content">
+			<div class="item">
+				<h1>管理员登陆</h1>
+				<p>请输入用户名和密码:</p>
+				<form action="">
+					用户名: <input type="text" id="username">
+					密码: <input type="password" id="password">
+					<input type="button" value="登录" onclick="loginBotton()">
+				</form>
+				
+			</div>
+
+		</div>
+		
+		<div class="footer">
+		
+			<span class="left">&copy; 2015 <a href="mailto:13281092@bjtu.edu.cn">13281092刘瀚文</a></span>
+
+			<div class="clearer"><span></span></div>
+		
+		</div>
+
+	</div>	
+
+</div>
+
+</body>
+
+</html>
